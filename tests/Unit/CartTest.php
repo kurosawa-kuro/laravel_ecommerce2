@@ -39,8 +39,26 @@ class CartTest extends TestCase
         $this->testSeeder();
 //        dd(User::get()->toArray());
 
-        dd(Cart::get()->toArray());
+//        dd(Cart::with('product')->where('order_id',1)->get()->toArray());
+        $cart = Cart::with('product')->where('order_id', 1)->get()->toArray();
+//        dd($cart);
+        $products = [];
+        $data1 = array("name" => "product 1", "image" => "https://i.pravatar.cc/300");
+        $data2 = array("name" => "product 2", "image" => "https://i.pravatar.cc/300");
 
+        $array1[] = $data1;
+        $array1[] = $data2;
+
+        dd($array1);
+
+
+//        $product = array("name" => "dummy product1");
+//        $products = array_merge($product,array("name" => "dummy product2"));
+//        dd($products);
+
+        $amount = 100;
+        $displayCart = ["products" => [], "amount" => $amount];
+        dd($displayCart);
         $this->assertTrue(true);
     }
 }

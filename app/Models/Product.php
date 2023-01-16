@@ -26,4 +26,9 @@ class Product extends Model
         'price',
         'quantity',
     ];
+
+    Public function products()
+    {
+        return $this->belongsTo(Cart::class);
+    }
 }
